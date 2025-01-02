@@ -2,7 +2,13 @@
 
 This plugin is a starting point for leveraging Rust and WebAssembly in your UXP plugins. It comes defined with most of the dependencies you need to get started. As this plugin does rely on the [Rust Programming Language](https://www.rust-lang.org/), an environment configured for Rust development will be required before this will be usable in Photoshop.
 
-**Warning:** This plugin currently crashes Photoshop on ARM devices, including Apple Silicon Macs.
+## Updates
+
+**January 2025**
+
+This plugin has been updated and tested with:
+- Node 22.x 
+- Photoshop 26.3.0 20241222.m.2915 2fd7bcd  arm64
 
 # Configuration
 
@@ -25,7 +31,7 @@ $ cargo install wasm-pack
 ### 2. Test local Rust configuration and [wasm-pack](https://github.com/rustwasm/wasm-pack) installation
 
 ```
-$ yarn test         # or cargo test && wasm-pack test --node
+$ npm run test         # or cargo test && wasm-pack test --node
 ```
 
 ## Node.js
@@ -33,23 +39,23 @@ $ yarn test         # or cargo test && wasm-pack test --node
 ### 1. Install the Node.js dependencies:
 
 ```
-$ yarn install      # or npm install
+$ npm install
 ```
 
 ### 2. Run plugin in watch or build mode
 
 ```
-$ yarn watch        # or npm run watch
+$ npm run watch
 
 # OR
 
-$ yarn build        # or npm run build
+$ npm run build
 ```
 
 > You **must** run `build` prior to trying to use this plugin within Photoshop!
 
-- `yarn watch` or `npm run watch` will build a development version of the plugin, and recompile everytime you make a change to the source files. The result is placed in `dist`.
-- `yarn build` or `npm run build` will build a production version of the plugin and place it in `dist`. It will not update every time you make a change to the source files.
+- `npm run watch` will build a development version of the plugin, and recompile everytime you make a change to the source files. The result is placed in `dist`.
+- `npm run build` will build a production version of the plugin and place it in `dist`. It will not update every time you make a change to the source files.
 
 **Note:** Since UXP does not have implicit access to `localhost` for leveraging a development server, this plugin uses inline WebAssembly to work properly. As such, you'll find the following import in `js/index.js`:
 
@@ -57,10 +63,10 @@ $ yarn build        # or npm run build
 import encodedRust from '../wasm/uxp.wasm';
 ```
 
-When the build script is triggerred, this JS file with the inline WebAssembly is generated. Should you wish to generate this file yourself, execute the following commands:
+When the build script is triggered, this JS file with the inline WebAssembly is generated. Should you wish to generate this file yourself, execute the following commands:
 
 ```
-$ yarn inlinewasm   # generate JS file containing the inline WebAssembly data
+$ npm run inlinewasm   # generate JS file containing the inline WebAssembly data
 ```
 
 ## Launching in Photoshop
