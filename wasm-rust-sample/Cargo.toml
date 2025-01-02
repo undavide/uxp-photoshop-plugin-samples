@@ -1,15 +1,15 @@
 [package]
 name = "uxp-wasm-rust-sample"
 description = "UXP Sample for using Rust and WebAssembly in Photoshop"
-version = "0.1.0"
+version = "0.2.0"
 categories = ["wasm", "uxp"]
-edition = "2018"
+edition = "2021"
 
 [lib]
 crate-type = ["cdylib"]
 
 [dependencies]
-wasm-bindgen = "0.2.75"
+wasm-bindgen = "0.2.99"
 
 [dev-dependencies]
-wasm-bindgen-test = "0.3.25"
+wasm-bindgen-test = "0.3.49"
